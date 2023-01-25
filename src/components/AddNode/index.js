@@ -10,15 +10,11 @@ const AddNode = ({ show, onHide, onSave, defaultValues = {} }) => {
 	} = useForm({ defaultValues });
 
 	return (
-		<Modal
-			show={show}
-			size="lg"
-			aria-labelledby="contained-modal-title-vcenter"
-			centered
-			onHide={onHide}
-		>
+		<Modal show={show} size="lg" centered onHide={onHide}>
 			<Modal.Header closeButton>
-				<Modal.Title id="contained-modal-title-vcenter">Modal heading</Modal.Title>
+				<Modal.Title id="contained-modal-title-vcenter">
+					{defaultValues?.title ? 'Edit' : 'Add'}
+				</Modal.Title>
 			</Modal.Header>
 			<Form onSubmit={handleSubmit(onSave)}>
 				<Modal.Body>
